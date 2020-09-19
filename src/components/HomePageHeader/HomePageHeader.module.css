@@ -1,0 +1,16 @@
+.WhiteHeader {
+    height: 100%;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    background-color: #FFF;
+    display: flex;
+    flex-direction: row;
+    border-radius: 0.5rem;
+}
+
+.Button {
+    background-color: #68CAD7;
+    border: none;
+    border-radius: 0.5rem;
+}
