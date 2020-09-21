@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './custom.scss';
 
 import Navbar from './components/Navigation/Navbar/Navbar';
 import Home from './pages/Home/Home';

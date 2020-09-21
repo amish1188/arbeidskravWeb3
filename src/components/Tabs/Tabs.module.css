@@ -1,0 +1,15 @@
+
+
+.Tabs div a{
+    color: #4D4C4C;
+}
+
+.Tabs div {
+    height: 40px;
+    margin-right: 1em;
+}
+
+.Tabs div:hover{
+    background-color: #FCCFC2;
+    
+}
