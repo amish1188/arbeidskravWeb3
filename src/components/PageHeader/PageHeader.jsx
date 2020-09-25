@@ -7,7 +7,7 @@ const PageHeader = (props) => {
     return(
         
             
-                    <Row style={{marginTop: "1rem"}} >
+                    <Row style={{marginTop: "1rem", marginBottom: "3rem"}} >
                         <Col className="py-3 px-0" md="auto">{props.title}</Col>
                         <Col className="py-3" md="auto">|</Col>
                         <Col className="py-3 px-0">14.08.2020</Col>

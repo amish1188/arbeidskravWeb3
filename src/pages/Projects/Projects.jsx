@@ -1,60 +1,75 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter, Switch, Route, NavLink, useRouteMatch } from 'react-router-dom';
+
 import Container from 'react-bootstrap/Container';
-import TabsHeader from '../../components/Tabs/Tabs';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 import projects from '../../data/projects';
 
-import HomePageHeader from '../../components/HomePageHeader/HomePageHeader';
 import PageHeader from '../../components/PageHeader/PageHeader';
 import ContentContainer from '../../components/ContentContainer/ContentContainer';
 
+
+import classes from './Projects.module.css';
+import ButtonSearchBarTab from '../../components/ButtonSearchBarTab/ButtonSearchBarTab';
+import UpcomingProjects from '../../components/Projects/UpcomingProjects/UpcomingProjects';
+import FinishedProjects from '../../components/Projects/FinishedProjects/FinishedProjects';
+
+
 const Projects = () => {
 
-    const allProjects = projects;
-    const [activeTab, setActiveTab] = useState({active:"Current projects"});
-    const [showProjects, setShowProjects] = useState([]);
-
-    const tabName = ["Current projects", "Upcoming projects", "Finished projects"];
-
-
-    const setActiveTabHandler = tabName => {
-        activateTab(tabName);
-    }
-    
-    //make function that activates the tab content
-    let activateTab = tabName => {
-        let arrayOfObjects = allProjects;
-        switch(tabName) {
-            case "Current projects":
-                setActiveTab({active: "Current projects"});
-                arrayOfObjects = arrayOfObjects.filter(project => project.status === "current")
-                setShowProjects(arrayOfObjects);
-                break;
-            case "Upcoming projects":
-                setActiveTab({active: "Upcoming projects"})
-                arrayOfObjects = arrayOfObjects.filter(project => project.status === "upcoming")
-                setShowProjects(arrayOfObjects);
-                break;
-            case "Finished projects": 
-                setActiveTab({active: "Finished projects"})
-                arrayOfObjects = arrayOfObjects.filter(project => project.status === "finished")
-                setShowProjects(arrayOfObjects);
-                break;
-            default: setActiveTab({active: "Current projects"})
-        }
-    }
-
-    useEffect(() => {
-        setActiveTabHandler(activeTab.active)
-    },[])
+    let { url, path } = useRouteMatch();
 
     return(
-        <Container>
-                <PageHeader title={"Projects"} />
-                <HomePageHeader />
-                <TabsHeader onClick={setActiveTabHandler} tabs={tabName}/>
-                <ContentContainer content={showProjects}/>
-        </Container>
+        <BrowserRouter>
+            <Container>
+                    <PageHeader title={"Projects"} />
+                    <ButtonSearchBarTab title={"project"} />
+                    <Row style={{marginBottom: "3rem"}}>
+                        <Col style={{paddingLeft: "0"}}>
+                            <nav>
+                                <ul  className={classes.List}>
+                                    <li><NavLink 
+                                        className={classes.Tab}
+                                        activeClassName={classes.TabActive} 
+                                        to={`${url}/currentprojects`}>
+                                            Current Projects
+                                        </NavLink></li>
+                                    <li><NavLink 
+                                    className={classes.Tab}
+                                        activeClassName={classes.TabActive} 
+                                        to={`${url}/upcomingprojects`}>
+                                            Upcoming Projects
+                                        </NavLink></li>
+                                    <li><NavLink 
+                                    className={classes.Tab}
+                                        activeClassName={classes.TabActive} 
+                                        to={`${url}/finishedprojects`}>
+                                            Finished Projects
+                                        </NavLink></li>
+                                </ul>
+                            </nav>
+                            </Col>
+                        </Row>
+                        <Row>
+                                <Col style={{paddingLeft: "0"}}>
+                                <Switch>
+                                    <Route path={`${path}/currentprojects`}>
+                                        <ContentContainer projects={projects.filter(item => item.status === "current")} />
+                                    </Route>
+                                    <Route path={`${path}/upcomingprojects`}>
+                                        <UpcomingProjects />
+                                    </Route>
+                                    <Route path={`${path}/finishedprojects`}>
+                                        <FinishedProjects />
+                                    </Route>
+                                </Switch>                   
+                            </Col>
+                        </Row>
+                        
+            </Container>
+        </BrowserRouter>
     );
 };
 
