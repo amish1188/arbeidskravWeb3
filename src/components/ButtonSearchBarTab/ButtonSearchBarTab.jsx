@@ -3,6 +3,7 @@ import React from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import AddButton from '../UI/AddButton/AddButton';
+import SearchBar from '../UI/SearchBar/SearchBar';
 
 const ButtonSearchBarTab = (props) => {
     return(
@@ -10,9 +11,9 @@ const ButtonSearchBarTab = (props) => {
             <Col style={{padding: "0"}}>
                 <AddButton title={props.title}></AddButton>
             </Col>
-            {/* <Col>
+            <Col>
                 <SearchBar></SearchBar>
-            </Col> */}
+            </Col>
         </Row>
     );
 };

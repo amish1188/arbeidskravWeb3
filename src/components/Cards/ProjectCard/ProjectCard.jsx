@@ -4,37 +4,37 @@ import React from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-import Deadline from '../../components/Deadline/Deadline';
+import Deadline from '../../Deadline/Deadline';
 import classes from './ProjectCard.module.css';
-import projects from '../../data/projects';
+import projects from '../../../data/projects';
 
 const ProjectCard = (props) => {
     return(
         <div style={{backgroundColor: `${props.color}`}} className={classes.ProjectCard}>
             <Row>
                 <Col>
-                    <h2>{props.project.name}</h2>
+                    <h4>{props.project.name}</h4>
                 </Col>
             </Row>
-            <Row>
+            <Row  style={{marginBottom: "1rem"}}>
                 <Col>
-                    <p>Progress</p>
+                    <header>Progress</header>
                     <div>Circle</div>
                 </Col>
                 <Col>
-                    <h4>Deadline</h4>
+                    <header>Deadline</header>
                     <Deadline date={props.project.date} month={props.project.month}/>
                 </Col>
                 <Col>
-                    <h4>Customer</h4>
+                    <header>Customer</header>
                 </Col>
                 <Col>
-                    <h4>Manager</h4>
+                    <header>Manager</header>
                 </Col>
             </Row>
             <Row>
                 <Col>
-                    <h4>Description</h4>
+                    <header>Description</header>
                     <p>{props.project.description}</p>
                 </Col>
             </Row>

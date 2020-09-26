@@ -1,30 +1,57 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, useLocation } from 'react-router-dom';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './custom.scss';
 
+import Container from 'react-bootstrap/Container';
 import Navbar from './components/Navigation/Navbar/Navbar';
 import Home from './pages/Home/Home';
 import Projects from './pages/Projects/Projects';
 import Team from './pages/Team/Team';
 import Customers from './pages/Customers/Customers';
 import Outlays from './pages/Outlays/Outlays';
-
+import PageHeader from './components/PageHeader/PageHeader';
+import ButtonSearchBarTab from './components/ButtonSearchBarTab/ButtonSearchBarTab';
 
 
 
 function App() {
+
+  const location = useLocation();
+  let pageHeaderName;
+  let buttonLabel;
+  switch(location.pathname) {
+    case "/projects":
+      pageHeaderName="Projects";
+      buttonLabel="project";
+      break;
+    case "/team": 
+      pageHeaderName="Team";
+      buttonLabel="worker";
+      break;
+    case "/customers":
+      pageHeaderName="Customers";
+      buttonLabel="customer";
+      break;
+    default:
+      pageHeaderName="Home"
+  }
+
   return (
     <div style={{display: "flex", flexDirection: "row"}}>
       <Navbar />
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/projects" exact component={Projects} />
-        <Route path="/team" exact component={Team} />
-        <Route path="/customers" exact component={Customers} />
-        <Route path="/outlays" exact component={Outlays} />
-      </Switch>
+      <Container>
+        <PageHeader title={pageHeaderName} />
+        {location.pathname  === "/" ? null : <ButtonSearchBarTab title={buttonLabel} />}
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/projects" exact component={Projects} />
+          <Route path="/team" exact component={Team} />
+          <Route path="/customers" exact component={Customers} />
+          <Route path="/outlays" exact component={Outlays} />
+        </Switch>
+      </Container>
     </div>
   );
 }

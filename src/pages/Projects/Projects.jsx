@@ -23,52 +23,47 @@ const Projects = () => {
 
     return(
         <BrowserRouter>
-            <Container>
-                    <PageHeader title={"Projects"} />
-                    <ButtonSearchBarTab title={"project"} />
-                    <Row style={{marginBottom: "3rem"}}>
-                        <Col style={{paddingLeft: "0"}}>
-                            <nav>
-                                <ul  className={classes.List}>
-                                    <li><NavLink 
-                                        className={classes.Tab}
-                                        activeClassName={classes.TabActive} 
-                                        to={`${url}/currentprojects`}>
-                                            Current Projects
-                                        </NavLink></li>
-                                    <li><NavLink 
-                                    className={classes.Tab}
-                                        activeClassName={classes.TabActive} 
-                                        to={`${url}/upcomingprojects`}>
-                                            Upcoming Projects
-                                        </NavLink></li>
-                                    <li><NavLink 
-                                    className={classes.Tab}
-                                        activeClassName={classes.TabActive} 
-                                        to={`${url}/finishedprojects`}>
-                                            Finished Projects
-                                        </NavLink></li>
-                                </ul>
-                            </nav>
-                            </Col>
-                        </Row>
-                        <Row>
-                                <Col style={{paddingLeft: "0"}}>
-                                <Switch>
-                                    <Route path={`${path}/currentprojects`}>
-                                        <ContentContainer projects={projects.filter(item => item.status === "current")} />
-                                    </Route>
-                                    <Route path={`${path}/upcomingprojects`}>
-                                        <UpcomingProjects />
-                                    </Route>
-                                    <Route path={`${path}/finishedprojects`}>
-                                        <FinishedProjects />
-                                    </Route>
-                                </Switch>                   
-                            </Col>
-                        </Row>
-                        
-            </Container>
+            <Row style={{marginBottom: "3rem"}}>
+                <Col style={{paddingLeft: "0"}}>
+                    <nav>
+                        <ul  className={classes.List}>
+                            <li><NavLink 
+                                className={classes.Tab}
+                                activeClassName={classes.TabActive} 
+                                to={`${url}/currentprojects`}>
+                                    Current Projects
+                                </NavLink></li>
+                            <li><NavLink 
+                                className={classes.Tab}
+                                activeClassName={classes.TabActive} 
+                                to={`${url}/upcomingprojects`}>
+                                    Upcoming Projects
+                                </NavLink></li>
+                            <li><NavLink 
+                                className={classes.Tab}
+                                    activeClassName={classes.TabActive} 
+                                    to={`${url}/finishedprojects`}>
+                                        Finished Projects
+                                </NavLink></li>
+                        </ul>
+                    </nav>
+                </Col>
+            </Row>
+            <Row>
+                <Col style={{paddingLeft: "0"}}>
+                    <Switch>
+                        <Route path={`${path}/currentprojects`}>
+                            <ContentContainer projects={projects.filter(item => item.status === "current")} />
+                        </Route>
+                        <Route path={`${path}/upcomingprojects`}>
+                            <UpcomingProjects />
+                        </Route>
+                        <Route path={`${path}/finishedprojects`}>
+                            <FinishedProjects />
+                        </Route>
+                    </Switch>                   
+                </Col>
+            </Row>
         </BrowserRouter>
     );
 };

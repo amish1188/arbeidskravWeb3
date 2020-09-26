@@ -1,0 +1,25 @@
+.List {
+    width: 100%;
+    display: flex;
+    list-style: none;
+    text-decoration: none;
+}
+
+.Tab {
+    padding: 1rem 1rem;
+    margin-right: 1rem;
+    border-radius: 6px;
+}
+
+.Tab:hover{
+    background-color: #FCCFC2;
+    text-decoration: none;
+
+}
+
+.TabActive {
+    padding: 1rem 1rem;
+    background-color: #FB9C80;
+    color: #FFF;
+    border-radius: 6px;
+}

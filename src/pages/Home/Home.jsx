@@ -7,7 +7,7 @@ const Home = () => {
     return(
         
             <Container>
-                <PageHeader title={"Home"} />
+                
                  
             </Container>
         

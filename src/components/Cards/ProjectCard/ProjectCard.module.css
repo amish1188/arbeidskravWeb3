@@ -1,0 +1,19 @@
+.ProjectCard {
+    min-height: 18rem;
+    padding: 1rem 2rem;
+    margin-bottom: 2rem;
+    color: #FFF;
+    border-radius: 6px;
+}
+
+.ProjectCard p {
+    font-size: 0.8em;
+    margin-bottom: 0;
+}
+
+.ProjectCard header {
+    font-size: 0.95em;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    text-align: ce;
+}

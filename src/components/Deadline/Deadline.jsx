@@ -1,13 +1,14 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
+import classes from './Deadline.module.css';
 
 const Deadline = (props) => {
     return(
         
-        <Card style={{border: "none", color:"#000"}}className="text-center">
-            <Card.Body>
-                <Card.Title>{props.date}</Card.Title>
-                <Card.Text >{props.month}</Card.Text>
+        <Card className={classes.Deadline}>
+            <Card.Body className={classes.DeadlineBody}>
+                <Card.Title style={{marginBottom: "0px", fontSize:"1.7em"}}>{props.date}</Card.Title>
+                <Card.Text>{props.month}</Card.Text>
             </Card.Body>
         </Card>
     )

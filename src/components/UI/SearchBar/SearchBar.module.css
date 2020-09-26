@@ -1,0 +1,25 @@
+.SearchBox {
+    display: flex;
+    float: right;
+    width: 25rem;
+    height: 3.4rem;
+    flex-direction: row;
+    border: 1px solid #4D4C4C;
+    justify-content: space-between;
+    padding-right: 2rem;
+    border-radius: 30px;
+}
+
+.SearchBox input {
+    border: none;
+    outline: none;
+    width: 20rem;
+    padding-left: 2rem;
+    color: #4D4C4C;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.SearchBox img {
+    width: 25px;
+}
