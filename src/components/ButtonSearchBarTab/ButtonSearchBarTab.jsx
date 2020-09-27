@@ -8,10 +8,10 @@ import SearchBar from '../UI/SearchBar/SearchBar';
 const ButtonSearchBarTab = (props) => {
     return(
         <Row style={{marginBottom: "4rem"}}>
-            <Col style={{padding: "0"}}>
+            <Col md={6}>
                 <AddButton title={props.title}></AddButton>
             </Col>
-            <Col>
+            <Col md={6} >
                 <SearchBar></SearchBar>
             </Col>
         </Row>

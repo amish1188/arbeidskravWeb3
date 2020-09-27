@@ -7,7 +7,7 @@ import Nav from 'react-bootstrap/Nav';
 
 const Navbar = () => {
     return(
-        <Nav defaultActiveKey="/" className={`flex-column ${classes.Navbar}`} >
+        <Nav defaultActiveKey="/" className={classes.Navbar} >
             <Nav.Link as={Link} to="/">Home</Nav.Link>
             <Nav.Link as={Link} to="/projects">Projects</Nav.Link>
             <Nav.Link as={Link} to="/team">Team</Nav.Link>

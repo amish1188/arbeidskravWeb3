@@ -24,7 +24,7 @@ const Projects = () => {
     return(
         <BrowserRouter>
             <Row style={{marginBottom: "3rem"}}>
-                <Col style={{paddingLeft: "0"}}>
+                <Col >
                     <nav>
                         <ul  className={classes.List}>
                             <li><NavLink 
@@ -50,7 +50,7 @@ const Projects = () => {
                 </Col>
             </Row>
             <Row>
-                <Col style={{paddingLeft: "0"}}>
+                <Col>
                     <Switch>
                         <Route path={`${path}/currentprojects`}>
                             <ContentContainer projects={projects.filter(item => item.status === "current")} />

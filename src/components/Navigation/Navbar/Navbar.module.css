@@ -1,5 +1,7 @@
 .Navbar {
     background-color: #68CAD7;
+    display: flex;
+    flex-direction: column;
     width: 140px;
     height: 100vh;
     justify-content: center;
@@ -8,3 +10,15 @@
 .Navbar a {
     color: #FFF;
 }
+
+@media only screen and (max-width:600px){
+    .Navbar {
+        display: flex;
+        z-index: 1000;
+        width: 100%;
+        height: 5rem;
+        position: fixed;
+        bottom: 0;
+        flex-direction: row;
+    }
+  }

@@ -4,20 +4,21 @@ import { BrowserRouter, Switch, Route, NavLink, useRouteMatch } from 'react-rout
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import classes from './Team.module.css';
-import ContentModel from '../../components/ContentModel/ContentModel';
 
 import team from '../../data/team';
+import ContentContainer from '../../components/ContentContainer/ContentContainer';
 
 
 const Team = () => {
 
     let { url, path } = useRouteMatch();
 
+    //make component from this ul
     return(
-        <BrowserRouter>
+        <BrowserRouter> 
             <Row style={{marginBottom: "3rem"}}>
-                <Col style={{paddingLeft: "0"}}>
-                    <nav>
+                <Col>
+                    <nav className={classes.Nav}>
                         <ul  className={classes.List}>
                             <li><NavLink 
                                 className={classes.Tab}
@@ -51,7 +52,7 @@ const Team = () => {
                 <Col style={{paddingLeft: "0"}}>
                     <Switch>
                         <Route path={`${path}/developers`}>
-                            <ContentModel contentData={team.developers} />
+                            <ContentContainer team={team.developers} />
                         </Route>
                         <Route path={`${path}/upcomingprojects`}>
                             

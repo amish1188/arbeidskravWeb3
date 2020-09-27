@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch, useLocation } from 'react-router-dom';
-import './App.css';
+import classes from './App.module.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './custom.scss';
 
@@ -39,9 +39,9 @@ function App() {
   }
 
   return (
-    <div style={{display: "flex", flexDirection: "row"}}>
+    <div className={classes.Wrapper}>
       <Navbar />
-      <Container>
+      <Container style={{height:"100vh"}}>
         <PageHeader title={pageHeaderName} />
         {location.pathname  === "/" ? null : <ButtonSearchBarTab title={buttonLabel} />}
         <Switch>
