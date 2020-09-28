@@ -1,59 +1,42 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Switch, Route, NavLink, useRouteMatch } from 'react-router-dom';
+import React, { useState } from 'react';
+import { BrowserRouter, Switch, Route, useRouteMatch } from 'react-router-dom';
 
-import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 import projects from '../../data/projects';
-
-import PageHeader from '../../components/PageHeader/PageHeader';
+import Tabs from '../../components/Tabs/Tabs';
 import ContentContainer from '../../components/ContentContainer/ContentContainer';
-
-
-import classes from './Projects.module.css';
-import ButtonSearchBarTab from '../../components/ButtonSearchBarTab/ButtonSearchBarTab';
 import UpcomingProjects from '../../components/Projects/UpcomingProjects/UpcomingProjects';
 import FinishedProjects from '../../components/Projects/FinishedProjects/FinishedProjects';
 
 
 const Projects = () => {
 
-    let { url, path } = useRouteMatch();
+    const [ activeProject, setNewActiveProject ] = useState(projects);
 
+    let { url, path } = useRouteMatch();
+     const paths =  [
+        {
+            path:'currentprojects',
+            label: 'Current Projects' 
+        }, 
+        {
+            path:'upcomingprojects',
+            label: 'Upcoming Projects'
+        },
+        {
+            path:'finishedprojects',
+            label: 'Finished Projects'
+        }] 
     return(
         <BrowserRouter>
-            <Row style={{marginBottom: "3rem"}}>
-                <Col >
-                    <nav>
-                        <ul  className={classes.List}>
-                            <li><NavLink 
-                                className={classes.Tab}
-                                activeClassName={classes.TabActive} 
-                                to={`${url}/currentprojects`}>
-                                    Current Projects
-                                </NavLink></li>
-                            <li><NavLink 
-                                className={classes.Tab}
-                                activeClassName={classes.TabActive} 
-                                to={`${url}/upcomingprojects`}>
-                                    Upcoming Projects
-                                </NavLink></li>
-                            <li><NavLink 
-                                className={classes.Tab}
-                                    activeClassName={classes.TabActive} 
-                                    to={`${url}/finishedprojects`}>
-                                        Finished Projects
-                                </NavLink></li>
-                        </ul>
-                    </nav>
-                </Col>
-            </Row>
+            <Tabs url={url} paths={paths} />
             <Row>
-                <Col>
+                <Col style={{paddingLeft: "0"}}>
                     <Switch>
                         <Route path={`${path}/currentprojects`}>
-                            <ContentContainer projects={projects.filter(item => item.status === "current")} />
+                            <ContentContainer projects={activeProject.filter(item => item.status === "current")} />
                         </Route>
                         <Route path={`${path}/upcomingprojects`}>
                             <UpcomingProjects />

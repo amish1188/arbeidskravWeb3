@@ -26,15 +26,23 @@ const ContentContainer = (props) => {
         renderContent = props.team.map(worker => {
             return(
                 <Col className="d-flex" key={worker.id} md={6} lg={4} xl={3}>
-                    <CardModel worker={worker}/>
+                    <CardModel object={worker}/>
                 </Col>
             );
         });        
-    }      
+    }  else if(props.customers){
+        renderContent = props.customers.map(customer => {
+            return(
+                <Col className="d-flex" key={customer.id} md={6} lg={4} xl={3}>
+                    <CardModel object={customer}/>
+                </Col>
+            );
+        });      
+    }
 
     return(
 
-        <Container  className="overflow-auto" style={{maxHeight: '24.5rem', padding: '0'}}>
+        <Container  className="overflow-auto" style={{maxHeight: '24.5rem'}}>
             <Row >
                 {renderContent}
             </Row>

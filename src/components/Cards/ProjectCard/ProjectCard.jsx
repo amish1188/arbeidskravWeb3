@@ -6,9 +6,14 @@ import Col from 'react-bootstrap/Col';
 
 import Deadline from '../../Deadline/Deadline';
 import classes from './ProjectCard.module.css';
-import projects from '../../../data/projects';
+
+import CircularImg from '../../UI/CircularImg/CircularImg';
 
 const ProjectCard = (props) => {
+    
+    let customerImg= require(`../../../assets/profilePictures/${props.project.customer}.jpg`);
+    let managerImg= require(`../../../assets/profilePictures/${props.project.manager}.jpg`);
+
     return(
         <div style={{backgroundColor: `${props.color}`}} className={classes.ProjectCard}>
             <Row>
@@ -27,9 +32,11 @@ const ProjectCard = (props) => {
                 </Col>
                 <Col>
                     <header>Customer</header>
+                    <CircularImg img={customerImg} />
                 </Col>
                 <Col>
                     <header>Manager</header>
+                    <CircularImg img={managerImg} />
                 </Col>
             </Row>
             <Row>

@@ -1,15 +1,18 @@
-
-
-.Tabs div a{
-    color: #4D4C4C;
+.Tab {
+    padding: 1rem 1rem;
+    margin-right: 1rem;
+    border-radius: 6px;
 }
 
-.Tabs div {
-    height: 40px;
-    margin-right: 1em;
-}
-
-.Tabs div:hover{
+.Tab:hover{
     background-color: #FCCFC2;
-    
+    text-decoration: none;
+
+}
+
+.TabActive {
+    padding: 1rem 1rem;
+    background-color: #FB9C80;
+    color: #FFF;
+    border-radius: 6px;
 }

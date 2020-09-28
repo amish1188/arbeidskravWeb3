@@ -21,21 +21,15 @@ function App() {
   const location = useLocation();
   let pageHeaderName;
   let buttonLabel;
-  switch(location.pathname) {
-    case "/projects":
+  if(location.pathname.includes("/projects")) {
       pageHeaderName="Projects";
       buttonLabel="project";
-      break;
-    case "/team": 
+  } else if(location.pathname.includes("/team")){
       pageHeaderName="Team";
       buttonLabel="worker";
-      break;
-    case "/customers":
+  } else if(location.pathname.includes("/customers")){
       pageHeaderName="Customers";
       buttonLabel="customer";
-      break;
-    default:
-      pageHeaderName="Home"
   }
 
   return (
@@ -46,10 +40,10 @@ function App() {
         {location.pathname  === "/" ? null : <ButtonSearchBarTab title={buttonLabel} />}
         <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/projects" exact component={Projects} />
-          <Route path="/team" exact component={Team} />
-          <Route path="/customers" exact component={Customers} />
-          <Route path="/outlays" exact component={Outlays} />
+          <Route path="/projects"  component={Projects} />
+          <Route path="/team" component={Team} />
+          <Route path="/customers" component={Customers} />
+          <Route path="/outlays" component={Outlays} />
         </Switch>
       </Container>
     </div>

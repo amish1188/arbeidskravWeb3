@@ -6,8 +6,8 @@ const projects = [
         name: "Project 1",
         progress: 65,
         deadline: "15-02-2020",
-        customer: "Starbucks",
-        manager: "Vitold",
+        customer: "starbucks",
+        manager: "man",
         status: "current",
         description: "Det er et velkjent faktum at lesere distraheres av lesbart innhold på en side når man\
                     ser på dens layout. Poenget med å bruke Lorem Ipsum er at det har en mer eller\
@@ -21,8 +21,8 @@ const projects = [
         name: "Project 1",
         progress: 65,
         deadline: "15-02-2020",
-        customer: "Starbucks",
-        manager: "Vitold",
+        customer: "starbucks",
+        manager: "man2",
         status: "current",
         description: "Det er et velkjent faktum at lesere distraheres av lesbart innhold på en side når man\
                     ser på dens layout. Poenget med å bruke Lorem Ipsum er at det har en mer eller\
@@ -34,8 +34,8 @@ const projects = [
         name: "Project 1",
         progress: 65,
         deadline: "15-02-2020",
-        customer: "Starbucks",
-        manager: "Vitold",
+        customer: "starbucks",
+        manager: "man3",
         status: "not"
     },
     {
@@ -45,8 +45,8 @@ const projects = [
         name: "Project 1",
         progress: 65,
         deadline: "15-02-2020",
-        customer: "Starbucks",
-        manager: "Vitold",
+        customer: "starbucks",
+        manager: "woman",
         status: "current"
     },
 

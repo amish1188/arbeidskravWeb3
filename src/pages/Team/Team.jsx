@@ -1,64 +1,55 @@
-import React from 'react';
-import { BrowserRouter, Switch, Route, NavLink, useRouteMatch } from 'react-router-dom';
+import  React, { useState } from 'react';
+import { BrowserRouter, Switch, Route,  useRouteMatch } from 'react-router-dom';
 
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import classes from './Team.module.css';
 
 import team from '../../data/team';
+import Tabs from '../../components/Tabs/Tabs';
 import ContentContainer from '../../components/ContentContainer/ContentContainer';
 
 
 const Team = () => {
 
+    const [ worker , setNewWorker ] = useState(team);
+
     let { url, path } = useRouteMatch();
+    const paths = [
+        {
+            path: 'developers',
+            label: 'Developers'
+        },
+        {
+            path: 'uidesigners',
+            label: 'UI Designers'
+        },
+        {
+            path: 'dataanalysts',
+            label: 'Data Analysts'
+        },
+        {
+            path: 'projectmanagers',
+            label: 'Project Managers'
+        }];
 
     //make component from this ul
     return(
         <BrowserRouter> 
-            <Row style={{marginBottom: "3rem"}}>
-                <Col>
-                    <nav className={classes.Nav}>
-                        <ul  className={classes.List}>
-                            <li><NavLink 
-                                className={classes.Tab}
-                                activeClassName={classes.TabActive} 
-                                to={`${url}/developers`}>
-                                    Developers
-                                </NavLink></li>
-                            <li><NavLink 
-                                className={classes.Tab}
-                                activeClassName={classes.TabActive} 
-                                to={`${url}/uidesigners`}>
-                                    UI Designers
-                                </NavLink></li>
-                            <li><NavLink 
-                                className={classes.Tab}
-                                    activeClassName={classes.TabActive} 
-                                    to={`${url}/dataanalysts`}>
-                                        Data Analysts
-                                </NavLink></li>
-                            <li><NavLink 
-                                className={classes.Tab}
-                                    activeClassName={classes.TabActive} 
-                                    to={`${url}/projectmanagers`}>
-                                        Project Managers
-                                </NavLink></li>
-                        </ul>
-                    </nav>
-                </Col>
-            </Row>
+            <Tabs url={url} paths={paths}/>            
             <Row>
                 <Col style={{paddingLeft: "0"}}>
                     <Switch>
                         <Route path={`${path}/developers`}>
-                            <ContentContainer team={team.developers} />
+                            <ContentContainer team={worker.developers} />
                         </Route>
-                        <Route path={`${path}/upcomingprojects`}>
-                            
+                        <Route path={`${path}/uidesigners`}>
+                            <ContentContainer team={worker.uidesigners} />
                         </Route>
-                        <Route path={`${path}/finishedprojects`}>
-                            
+                        <Route path={`${path}/dataanalysts`}>
+                            <ContentContainer team={worker.dataanalysts} />    
+                        </Route>
+                        <Route path={`${path}/projectmanagers`}>
+                            <ContentContainer team={worker.projectmanagers} />    
                         </Route>
                     </Switch>                   
                 </Col>

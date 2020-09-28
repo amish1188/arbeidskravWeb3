@@ -5,17 +5,6 @@
     background-color: #FFF;
 }
 
-.CircularImg {
-    width: 65px;
-    height: 65px;
-    overflow: hidden;
-    border-radius: 50%;
-}
-
-.CircularImg img {
-    width: 100%;
-    height: auto;
-}
 
 .HeaderTitle{
     display: flex;
