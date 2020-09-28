@@ -4,6 +4,7 @@ import classes from './App.module.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './custom.scss';
 
+import ProjectDetail from './components/ProjectDetail/ProjectDetail';
 import Container from 'react-bootstrap/Container';
 import Navbar from './components/Navigation/Navbar/Navbar';
 import Home from './pages/Home/Home';

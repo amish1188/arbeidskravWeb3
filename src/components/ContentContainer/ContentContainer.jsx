@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import Row from 'react-bootstrap/Row'; 
 import Col from 'react-bootstrap/Col'; 
@@ -16,10 +17,16 @@ const ContentContainer = (props) => {
     if(props.projects){
         renderContent = props.projects.map(project => {
             index++;
+            let color= projetcsColors[index]
             if(index > 2){index= 0}
             return(
                 <Col  className="d-flex" key={project.id} md={6}>
-                    <ProjectCard project={project} color={projetcsColors[index]} />
+                    <Link style={{textDecoration: 'none', width:'100%'}} to={{ 
+                        pathname: `${props.path}/${project.id}`,
+                        state: {
+                            project: {project} 
+                        }
+                    }}><ProjectCard project={project} color={color} /></Link>
                 </Col>
         )});
     } else if(props.team){

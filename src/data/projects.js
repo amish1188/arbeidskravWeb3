@@ -1,9 +1,9 @@
 const projects = [
     {
-        id: 1,
+        id: '1',
         date: "15",
         month: "February",
-        name: "Project 1",
+        name: "Starbucks app development",
         progress: 65,
         deadline: "15-02-2020",
         customer: "starbucks",
@@ -15,13 +15,13 @@ const projects = [
                     Det er et velkjent faktum at lesere distraheres av lesbart innhold… "
     },
     {
-        id: 2,
+        id: '2',
         date: "15",
         month: "February",
-        name: "Project 1",
+        name: "Pinterest new website",
         progress: 65,
         deadline: "15-02-2020",
-        customer: "starbucks",
+        customer: "pinterest",
         manager: "man2",
         status: "current",
         description: "Det er et velkjent faktum at lesere distraheres av lesbart innhold på en side når man\
@@ -30,8 +30,8 @@ const projects = [
                     Det er et velkjent faktum at lesere distraheres av lesbart innhold… "
     },
     {
-        id: 3,
-        name: "Project 1",
+        id: '3',
+        name: "Starbucks app development",
         progress: 65,
         deadline: "15-02-2020",
         customer: "starbucks",
@@ -39,7 +39,7 @@ const projects = [
         status: "not"
     },
     {
-        id: 4,
+        id: '4',
         date: "15",
         month: "February",
         name: "Project 1",

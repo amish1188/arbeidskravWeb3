@@ -7,8 +7,7 @@ import Col from 'react-bootstrap/Col';
 import projects from '../../data/projects';
 import Tabs from '../../components/Tabs/Tabs';
 import ContentContainer from '../../components/ContentContainer/ContentContainer';
-import UpcomingProjects from '../../components/Projects/UpcomingProjects/UpcomingProjects';
-import FinishedProjects from '../../components/Projects/FinishedProjects/FinishedProjects';
+import ProjectDetail from '../../components/ProjectDetail/ProjectDetail';
 
 
 const Projects = () => {
@@ -22,10 +21,6 @@ const Projects = () => {
             label: 'Current Projects' 
         }, 
         {
-            path:'upcomingprojects',
-            label: 'Upcoming Projects'
-        },
-        {
             path:'finishedprojects',
             label: 'Finished Projects'
         }] 
@@ -35,14 +30,14 @@ const Projects = () => {
             <Row>
                 <Col style={{paddingLeft: "0"}}>
                     <Switch>
-                        <Route path={`${path}/currentprojects`}>
-                            <ContentContainer projects={activeProject.filter(item => item.status === "current")} />
-                        </Route>
-                        <Route path={`${path}/upcomingprojects`}>
-                            <UpcomingProjects />
+                        <Route exact={true} path={`${path}/currentprojects`}>
+                            <ContentContainer path={`${path}/currentprojects`} projects={activeProject.filter(item => item.status === "current")} />
                         </Route>
                         <Route path={`${path}/finishedprojects`}>
-                            <FinishedProjects />
+                           
+                        </Route>
+                        <Route exact={true} path={`${path}/currentprojects/:id`} >
+                            <ProjectDetail projects={activeProject.filter(item => item.status === "current")}/>
                         </Route>
                     </Switch>                   
                 </Col>
