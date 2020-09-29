@@ -16,16 +16,16 @@ const ContentContainer = (props) => {
     
     if(props.projects){
         renderContent = props.projects.map(project => {
+            //set the color of the project cards so they are different, however wasnt able
+            //to send props(color value) via Link so that project detail card would also inherit 
+            //the same color. instead i set it up to just orange
             index++;
             let color= projetcsColors[index]
             if(index > 2){index= 0}
             return(
                 <Col  className="d-flex" key={project.id} md={6}>
                     <Link style={{textDecoration: 'none', width:'100%'}} to={{ 
-                        pathname: `${props.path}/${project.id}`,
-                        state: {
-                            project: {project} 
-                        }
+                        pathname: `${props.path}/${project.id}`
                     }}><ProjectCard project={project} color={color} /></Link>
                 </Col>
         )});

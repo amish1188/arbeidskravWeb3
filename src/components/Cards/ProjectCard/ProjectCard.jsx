@@ -1,6 +1,6 @@
 import React from 'react';
 
-
+import circleChart from '../../../assets/circlechart.png'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
@@ -13,7 +13,7 @@ const ProjectCard = (props) => {
     
     let customerImg= require(`../../../assets/profilePictures/${props.project.customer}.jpg`);
     let managerImg= require(`../../../assets/profilePictures/${props.project.manager}.jpg`);
-
+   
     return(
         <div style={{backgroundColor: `${props.color}`}} className={classes.ProjectCard}>
             <Row>
@@ -24,11 +24,11 @@ const ProjectCard = (props) => {
             <Row  style={{marginBottom: "1rem"}}>
                 <Col>
                     <header>Progress</header>
-                    <div>Circle</div>
+                    <CircularImg img={circleChart} />
                 </Col>
                 <Col>
                     <header>Deadline</header>
-                    <Deadline date={props.project.date} month={props.project.month}/>
+                    <Deadline detail={false} deadline={props.project.deadline}/>
                 </Col>
                 <Col>
                     <header>Customer</header>
