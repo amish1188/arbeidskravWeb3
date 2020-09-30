@@ -8,8 +8,7 @@ import CircularImg from '../../UI/CircularImg/CircularImg';
 
 const CardModel = (props) => {
 
-
-    const img= require(`../../../assets/profilePictures/${props.object.img}.jpg`);
+    const img= require(`../../../assets/profilePictures/${props.object.img !== "" ? `${props.object.img}.jpg` : `default.png`}`);
     
     return(
         <Card style={{width:"100%", marginBottom: "1rem", border:"none"}}>
@@ -18,7 +17,7 @@ const CardModel = (props) => {
                     <CircularImg img={img}/>
                     <div className={classes.HeaderTitle}>
                         <h4>{props.object.name}</h4>
-                        <p>{props.object.position ? props.object.Headerposition : null}</p>
+                        <p>{props.object.position ? props.object.position : null}</p>
                     </div>
                 </div>
                 <Button className={classes.Button}><img src={phoneIcon} alt="phone"/>{props.object.phone}</Button>

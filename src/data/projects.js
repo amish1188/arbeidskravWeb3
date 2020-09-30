@@ -1,10 +1,7 @@
 const projects = [
     {
         id: '1',
-        date: "15",
-        month: "February",
         name: "Starbucks app development",
-        progress: 65,
         deadline: "12/20/2020",
         customer: "starbucks",
         manager: "man",

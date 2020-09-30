@@ -1,4 +1,4 @@
-import  React, { useState } from 'react';
+import  React from 'react';
 import { BrowserRouter, Switch, Route,  useRouteMatch } from 'react-router-dom';
 
 import Row from 'react-bootstrap/Row';
@@ -9,8 +9,6 @@ import ContentContainer from '../../components/ContentContainer/ContentContainer
 
 
 const Team = (props) => {
-
-    const [ worker , setNewWorker ] = useState(props.team);
 
     let { url, path } = useRouteMatch();
     const paths = [
@@ -39,16 +37,16 @@ const Team = (props) => {
                 <Col style={{paddingLeft: "0"}}>
                     <Switch>
                         <Route path={`${path}/developers`}>
-                            <ContentContainer team={worker.developers} />
+                            <ContentContainer team={props.team.developers} />
                         </Route>
                         <Route path={`${path}/uidesigners`}>
-                            <ContentContainer team={worker.uidesigners} />
+                            <ContentContainer team={props.team.uidesigners} />
                         </Route>
                         <Route path={`${path}/dataanalysts`}>
-                            <ContentContainer team={worker.dataanalysts} />    
+                            <ContentContainer team={props.team.dataanalysts} />    
                         </Route>
                         <Route path={`${path}/projectmanagers`}>
-                            <ContentContainer team={worker.projectmanagers} />    
+                            <ContentContainer team={props.team.projectmanagers} />    
                         </Route>
                     </Switch>                   
                 </Col>

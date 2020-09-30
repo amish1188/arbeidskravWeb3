@@ -1,0 +1,17 @@
+.Input {
+    width: 100%;
+    border: none;
+    border-radius: 4px;
+    padding: 1rem;
+    outline: none;
+    margin-bottom: 1rem;
+}
+
+
+
+.Button, Button:active, Button:focus {
+    background-color: #68CAD7;
+    color:#FFF;
+    border: none;
+    outline: none;
+}

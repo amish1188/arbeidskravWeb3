@@ -15,7 +15,9 @@ const ProjectCard = (props) => {
     console.log(team);
     
 
-    let customerImg= require(`../../../assets/profilePictures/${props.project.customer}.jpg`);
+    let customerImg= props.project.customer.length < 1 ? 
+    require(`../../../assets/profilePictures/default.png`) :
+    require(`../../../assets/profilePictures/${props.project.customer}.jpg`);
     let managerImg= require(`../../../assets/profilePictures/${team[0].img}.jpg`);
    
     return(

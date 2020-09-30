@@ -6,12 +6,11 @@ import Col from 'react-bootstrap/Col';
 
 import Tabs from '../../components/Tabs/Tabs';
 import ContentContainer from '../../components/ContentContainer/ContentContainer';
-import ProjectDetail from '../../components/ProjectDetail/ProjectDetail';
+import ProjectDetail from '../../components/Modals/ProjectDetail/ProjectDetail';
 
 
 const Projects = (props) => {
 
-    const [ activeProject, setNewActiveProject ] = useState(props.projects);
 
     let { url, path } = useRouteMatch();
      const paths =  [
@@ -23,6 +22,7 @@ const Projects = (props) => {
             path:'finishedprojects',
             label: 'Finished Projects'
         }] 
+        
     return(
         <BrowserRouter>
             <Tabs url={url} paths={paths} />
@@ -32,12 +32,12 @@ const Projects = (props) => {
                         <Route exact={true} path={`${path}/currentprojects`}>
                             <ContentContainer 
                                 path={`${path}/currentprojects`} 
-                                projects={activeProject.filter(item => item.status === "current")} />
+                                projects={props.projects.filter(item => item.status === "current")} />
                         </Route>
                         <Route path={`${path}/finishedprojects`}>
                         </Route>
                         <Route exact={true} path={`${path}/currentprojects/:id`} >
-                            <ProjectDetail projects={activeProject.filter(item => item.status === "current")}/>
+                            <ProjectDetail projects={props.projects.filter(item => item.status === "current")}/>
                         </Route>
                     </Switch>                   
                 </Col>

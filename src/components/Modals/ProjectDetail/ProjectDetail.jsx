@@ -5,18 +5,22 @@ import Modal from 'react-bootstrap/Modal';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { useParams } from 'react-router-dom';
-import backIcon from '../../assets/icons/arrow_back_ios-white-18dp.svg';
-import chart from '../../assets/chart.png';
-import circleChart from '../../assets/circlechart.png';
+import backIcon from '../../../assets/icons/arrow_back_ios-white-18dp.svg';
+import chart from '../../../assets/chart.png';
+import circleChart from '../../../assets/circlechart.png';
 
 import classes from './ProjectDetail.module.css';
-import CircularImg from '../UI/CircularImg/CircularImg';
-import Deadline from '../Deadline/Deadline';
+import CircularImg from '../../UI/CircularImg/CircularImg';
+import Deadline from '../../Deadline/Deadline';
 
 const ProjectDetail = (props) => {
     let projectID = useParams()
+    
     let [project] = props.projects.filter(item => item.id === projectID.id)
-    let customerImg= require(`../../assets/profilePictures/${project.customer}.jpg`);
+    console.log(project);
+    let customerImg= project.customer === "" ? 
+        require(`../../../assets/profilePictures/default.png`) :
+        require(`../../../assets/profilePictures/${project.customer}.jpg`);
    
 
     return(
@@ -50,7 +54,7 @@ const ProjectDetail = (props) => {
                                 return(
                                     <Row style={{padding: '1rem 0rem'}}>
                                         <Col md="auto">
-                                            <CircularImg img={require(`../../assets/profilePictures/${worker.img}.jpg`)}/>
+                                            <CircularImg img={require(`../../../assets/profilePictures/${worker.img}.jpg`)}/>
                                         </Col>
                                         <Col>
                                             <Row>{worker.position}</Row>

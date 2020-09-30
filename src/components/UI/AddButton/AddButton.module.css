@@ -1,9 +1,11 @@
-.AddButton {
+.AddButton, .AddButton:active, .AddButton:focus {
     background-color: #68CAD7;
     color: #FFF;
     border: none;
     padding: 0.8rem 2rem;
+    outline: none !important;
 }
+
 
 .AddButton:hover {
     background-color: #2FB1C3;

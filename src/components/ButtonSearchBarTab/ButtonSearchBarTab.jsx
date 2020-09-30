@@ -9,7 +9,7 @@ const ButtonSearchBarTab = (props) => {
     return(
         <Row style={{marginBottom: "4rem"}}>
             <Col md={6}>
-                <AddButton title={props.title}></AddButton>
+                <AddButton addFunc={props.addFunc} title={props.title}></AddButton>
             </Col>
             <Col md={6} >
                 <SearchBar></SearchBar>

@@ -21,7 +21,7 @@ const ContentContainer = (props) => {
             //the same color. instead i set it up to just orange
             index++;
             let color= projetcsColors[index]
-            if(index > 2){index= 0}
+            if(index === 2){index= -1}
             return(
                 <Col  className="d-flex" key={project.id} md={6}>
                     <Link style={{textDecoration: 'none', width:'100%'}} to={{ 
