@@ -31,7 +31,9 @@ const Projects = () => {
                 <Col style={{paddingLeft: "0"}}>
                     <Switch>
                         <Route exact={true} path={`${path}/currentprojects`}>
-                            <ContentContainer path={`${path}/currentprojects`} projects={activeProject.filter(item => item.status === "current")} />
+                            <ContentContainer 
+                                path={`${path}/currentprojects`} 
+                                projects={activeProject.filter(item => item.status === "current")} />
                         </Route>
                         <Route path={`${path}/finishedprojects`}>
                            
