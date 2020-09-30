@@ -4,7 +4,7 @@ import classes from './App.module.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './custom.scss';
 
-import ProjectDetail from './components/ProjectDetail/ProjectDetail';
+//components
 import Container from 'react-bootstrap/Container';
 import Navbar from './components/Navigation/Navbar/Navbar';
 import Home from './pages/Home/Home';
@@ -15,6 +15,10 @@ import Outlays from './pages/Outlays/Outlays';
 import PageHeader from './components/PageHeader/PageHeader';
 import ButtonSearchBarTab from './components/ButtonSearchBarTab/ButtonSearchBarTab';
 
+//data 
+import projects from './data/projects';
+import team from './data/team';
+import customers from './data/customers';
 
 
 function App() {
@@ -41,10 +45,9 @@ function App() {
         {location.pathname  === "/" ? null : <ButtonSearchBarTab title={buttonLabel} />}
         <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/projects"  component={Projects} />
-          <Route path="/team" component={Team} />
-          <Route path="/customers" component={Customers} />
-          <Route path="/outlays" component={Outlays} />
+          <Route path="/projects"  component={Projects} projects={projects}/>
+          <Route path="/team" component={Team} team={team}/>
+          <Route path="/customers" component={Customers} customers={customers}/>
         </Switch>
       </Container>
     </div>

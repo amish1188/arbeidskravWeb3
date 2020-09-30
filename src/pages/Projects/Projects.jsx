@@ -4,15 +4,14 @@ import { BrowserRouter, Switch, Route, useRouteMatch } from 'react-router-dom';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-import projects from '../../data/projects';
 import Tabs from '../../components/Tabs/Tabs';
 import ContentContainer from '../../components/ContentContainer/ContentContainer';
 import ProjectDetail from '../../components/ProjectDetail/ProjectDetail';
 
 
-const Projects = () => {
+const Projects = (props) => {
 
-    const [ activeProject, setNewActiveProject ] = useState(projects);
+    const [ activeProject, setNewActiveProject ] = useState(props.projects);
 
     let { url, path } = useRouteMatch();
      const paths =  [
@@ -36,7 +35,6 @@ const Projects = () => {
                                 projects={activeProject.filter(item => item.status === "current")} />
                         </Route>
                         <Route path={`${path}/finishedprojects`}>
-                           
                         </Route>
                         <Route exact={true} path={`${path}/currentprojects/:id`} >
                             <ProjectDetail projects={activeProject.filter(item => item.status === "current")}/>

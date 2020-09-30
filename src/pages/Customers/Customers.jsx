@@ -3,13 +3,12 @@ import { BrowserRouter, Switch, Route, useRouteMatch, NavLink } from 'react-rout
 
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import customers from '../../data/customers';
 import Tabs from '../../components/Tabs/Tabs';
 import ContentContainer from '../../components/ContentContainer/ContentContainer';
 
-const Customers = () => {
+const Customers = (props) => {
 
-    const [customer, setNewCustomer] = useState(customers);
+    const [customer, setNewCustomer] = useState(props.customers);
     let { url, path } = useRouteMatch();
     const paths = [
         {

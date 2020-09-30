@@ -4,14 +4,13 @@ import { BrowserRouter, Switch, Route,  useRouteMatch } from 'react-router-dom';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-import team from '../../data/team';
 import Tabs from '../../components/Tabs/Tabs';
 import ContentContainer from '../../components/ContentContainer/ContentContainer';
 
 
-const Team = () => {
+const Team = (props) => {
 
-    const [ worker , setNewWorker ] = useState(team);
+    const [ worker , setNewWorker ] = useState(props.team);
 
     let { url, path } = useRouteMatch();
     const paths = [

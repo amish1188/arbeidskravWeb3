@@ -25,7 +25,8 @@ const ContentContainer = (props) => {
             return(
                 <Col  className="d-flex" key={project.id} md={6}>
                     <Link style={{textDecoration: 'none', width:'100%'}} to={{ 
-                        pathname: `${props.path}/${project.id}`
+                        pathname: `${props.path}/${project.id}`,
+                        state: {name: 'chuj'}
                     }}><ProjectCard project={project} color={color} /></Link>
                 </Col>
         )});

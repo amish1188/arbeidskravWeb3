@@ -13,9 +13,10 @@ const ProjectCard = (props) => {
     
     const team = props.project.team
     console.log(team);
+    
 
     let customerImg= require(`../../../assets/profilePictures/${props.project.customer}.jpg`);
-    //let managerImg= require(`../../../assets/profilePictures/${props.project.manager}.jpg`);
+    let managerImg= require(`../../../assets/profilePictures/${team[0].img}.jpg`);
    
     return(
         <div style={{backgroundColor: `${props.color}`}} className={classes.ProjectCard}>
@@ -39,7 +40,7 @@ const ProjectCard = (props) => {
                 </Col>
                 <Col>
                     <header>Manager</header>
-                    {/* <CircularImg img={managerImg} /> */}
+                    <CircularImg img={managerImg} />
                 </Col>
             </Row>
             <Row>

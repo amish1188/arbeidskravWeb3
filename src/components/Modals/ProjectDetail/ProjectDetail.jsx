@@ -16,8 +16,6 @@ import Deadline from '../Deadline/Deadline';
 const ProjectDetail = (props) => {
     let projectID = useParams()
     let [project] = props.projects.filter(item => item.id === projectID.id)
-    console.log(project);
-
     let customerImg= require(`../../assets/profilePictures/${project.customer}.jpg`);
    
 
