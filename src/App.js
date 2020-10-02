@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Redirect, Route, Switch, useLocation } from 'react-router-dom';
+import { Route, Switch, useLocation } from 'react-router-dom';
 import classes from './App.module.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './custom.scss';
@@ -24,7 +24,7 @@ function App() {
 
   const [projects, setNewProject] = useState(projectsData);
   const [team, setNewWorker] = useState(teamData);
-  const [customers, setNewCustomer] = useState(customersData);
+  const [customers] = useState(customersData);
 
   const addNewProject = (newProject) => {
     setNewProject([...projects, newProject])
@@ -37,6 +37,7 @@ function App() {
     if(newWorker.position === "Project Manager"){setNewWorker({...team, projectmanagers: [...team.projectmanagers, newWorker ]})}
   }
   const addNewCustomer = (newCustomer) => {
+    //havent implemented it
     setNewProject(...projects, newCustomer)
   }
 
@@ -78,3 +79,4 @@ function App() {
 }
 
 export default App;
+

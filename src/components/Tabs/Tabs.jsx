@@ -8,10 +8,10 @@ import classes from './Tabs.module.css';
 const Tabs = (props) => {
 
     return(
-        <Row style={{marginBottom: '3rem'}}>
-            {props.paths.map(path => {
+        <Row className={classes.RowStyle}>
+            {props.paths.map((path, index) => {
                 return(
-                    <Col md='auto'>
+                    <Col key={index} style={{marginBottom: '3rem'}} xs='auto' md='auto'>
                         <NavLink activeClassName={classes.TabActive} className={classes.Tab} to={`${props.url}/${path.path}`}>
                             {path.label}
                         </NavLink>

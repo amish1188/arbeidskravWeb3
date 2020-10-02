@@ -1,0 +1,57 @@
+
+.Modal{
+    width: 75% !important;
+    max-width: none!important;
+}
+
+.RowFlex {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.ModalBody {
+    padding: 2rem 3rem;
+    background-color: #FB9C80;
+    color:#FFF;
+}
+
+.Container {
+    background-color: #FFF;
+    color: #4D4C4C;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+}
+
+.Charts img {
+    height: 7em;
+    width: auto;
+    overflow: auto;
+}
+
+
+.Desc {
+    font-size: 0.8em;
+}
+
+@media only screen and (max-width:1200px){
+    .Modal {
+        font-size: 0.7rem;
+    }
+
+}
+
+@media only screen and (max-width:770px){
+    .Modal {
+        width: 50% !important;
+        max-width: none!important;
+    }
+
+}
+@media only screen and (max-width:600px){
+    .Modal {
+        width: 80% !important;
+        max-width: none!important;
+    }
+
+}

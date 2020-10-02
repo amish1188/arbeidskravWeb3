@@ -1,0 +1,9 @@
+.Container {
+    max-height: 20rem;
+}
+
+@media only screen and (max-width:770px){
+    .Container {
+        max-height: 14rem;
+    }
+}

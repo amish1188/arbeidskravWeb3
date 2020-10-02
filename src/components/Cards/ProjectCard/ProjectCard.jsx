@@ -18,7 +18,7 @@ const ProjectCard = (props) => {
     let customerImg= props.project.customer.length < 1 ? 
     require(`../../../assets/profilePictures/default.png`) :
     require(`../../../assets/profilePictures/${props.project.customer}.jpg`);
-    let managerImg= require(`../../../assets/profilePictures/${team[0].img}.jpg`);
+    let managerImg= require(`../../../assets/profilePictures/${props.project.manager}.jpg`);
    
     return(
         <div style={{backgroundColor: `${props.color}`}} className={classes.ProjectCard}>

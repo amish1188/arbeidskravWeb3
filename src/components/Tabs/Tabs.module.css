@@ -1,7 +1,17 @@
+.RowStyle {
+    margin-bottom: 3rem;
+}
+
 .Tab {
     padding: 1rem 1rem;
     margin-right: 1rem;
     border-radius: 6px;
+    margin-bottom: 100px;
+    
+}
+
+.Tab a {
+    margin-bottom: 100px;
 }
 
 .Tab:hover{
@@ -15,4 +25,10 @@
     background-color: #FB9C80;
     color: #FFF;
     border-radius: 6px;
+}
+
+@media only screen and (max-width:820px){
+    .RowStyle {
+        margin-bottom: 0rem;
+    }
 }

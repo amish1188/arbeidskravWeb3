@@ -104,7 +104,11 @@ const projects = [
             position: "UI Designer"
         }
     ],
-        status: "current"
+        status: "current",
+        description: "Det er et velkjent faktum at lesere distraheres av lesbart innhold på en side når man\
+        ser på dens layout. Poenget med å bruke Lorem Ipsum er at det har en mer eller\
+        mindre normal fordeling Det er et velkjent faktum at lesere distraheres av lesbart\
+        Det er et velkjent faktum at lesere distraheres av lesbart innhold… "
     },
 
 ];

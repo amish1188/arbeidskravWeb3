@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter, Switch, Route, useRouteMatch } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -47,3 +48,7 @@ const Projects = (props) => {
 };
 
 export default Projects;
+
+Projects.propTypes = {
+    projects: PropTypes.array
+}

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Switch, Route, useRouteMatch, NavLink } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, useRouteMatch } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -8,7 +9,7 @@ import ContentContainer from '../../components/ContentContainer/ContentContainer
 
 const Customers = (props) => {
 
-    const [customer, setNewCustomer] = useState(props.customers);
+    const [customer] = useState(props.customers);
     let { url, path } = useRouteMatch();
     const paths = [
         {
@@ -41,3 +42,7 @@ const Customers = (props) => {
 };
 
 export default Customers;
+
+Customers.propTypes = {
+    customers: PropTypes.array
+}

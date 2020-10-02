@@ -6,6 +6,7 @@ import Col from 'react-bootstrap/Col';
 import ProjectCard from '../Cards/ProjectCard/ProjectCard';
 import  Container from 'react-bootstrap/Container';
 import CardModel from '../Cards/CardModel/CardModel';
+import classes from './ContentContainer.module.css';
 
 const ContentContainer = (props) => {
 
@@ -50,7 +51,7 @@ const ContentContainer = (props) => {
 
     return(
 
-        <Container  className="overflow-auto" style={{maxHeight: '24.5rem'}}>
+        <Container className={`overflow-auto ${classes.Container}`}>
             <Row >
                 {renderContent}
             </Row>

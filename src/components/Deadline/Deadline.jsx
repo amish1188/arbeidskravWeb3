@@ -20,7 +20,7 @@ const Deadline = (props) => {
         <Card className={classes.Deadline}>
             <Card.Body className={classes.DeadlineBody}>
                 <Card.Title style={{marginBottom: "0px", fontSize:"1.7em"}}>{day}</Card.Title>
-                <Card.Text>{props.deadline === "" ? "unkown" :month}</Card.Text>
+                <Card.Text>{props.deadline === "" ? "unknown" :month}</Card.Text>
             </Card.Body>
             {props.detail ? <Card.Footer style={{fontSize:"0.8rem"}}>{daysLeft} days left</Card.Footer> : null}
         </Card>

@@ -4,12 +4,14 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import classes from './FormProject.module.css';
+import PropTypes from 'prop-types';
 
 
 const FormProject = (props) => {
 
 
     const [noTitle, setNoTitle] = useState(true)
+
     const [project, setNewProject] = useState(
         {
             id: `${Math.random()}`,
@@ -25,20 +27,33 @@ const FormProject = (props) => {
 
     const submit = () => {
         if(project.name.length > 0){
-            props.submit(project);
-            props.closeModal();
+            
+            
+                props.submit(project);
+                props.closeModal();
+            
         } 
         else {
             setNoTitle(false)
         }
     }
 
-    const twoCalls = (e) => {
-        let worker = props.team.developers.filter(worker => worker.img === e.target.value);
+    const replaceUiDesigner = (e) => {
+        let designer = props.team.uidesigners.filter(worker => worker.img === e.target.value)
+        setNewProject({...project, team: [...project.team, designer].flat() })
+        console.log(designer);
+    }
+
+    const replaceDeveloper = (e) => {
+        let developer = props.team.developers.filter(worker => worker.img === e.target.value)
+        setNewProject({...project, team: [...project.team, developer].flat()})
+    }
+
+    const replaceManager = (e) => {
+        console.log(e.target.value);
+        const manager = props.team.projectmanagers.filter(worker => worker.img === e.target.value);
+        setNewProject({...project, manager: e.target.value, team: [...project.team, manager].flat()})
         
-        setNewProject({...project, manager: e.target.value});
-        setNewProject({...project, team: worker});
-        console.log(worker);
     }
 
     return(   
@@ -65,7 +80,7 @@ const FormProject = (props) => {
                 </Col>
             </Row>
             <Row>
-                <Col>
+                <Col sm='12' md='6'>
                     <Form.Control 
                         className={classes.Input}  
                         placeholder="Deadline mm/dd/yyyy"
@@ -73,12 +88,12 @@ const FormProject = (props) => {
                             ...project, deadline: e.target.value
                         })}/>
                 </Col>
-                <Col>
+                <Col sm='12' md='6' style={{marginBottom:'1rem'}}>
                     <Form.Control 
                         class="mr-sm-2"
                         as="select"
                         placeholder="Manager"
-                        onChange={(e) => twoCalls(e)}
+                        onChange={(e) => replaceManager(e)}
                     >
                         <option value="0">Manager</option>
                         {props.team.projectmanagers.map(worker => {
@@ -86,14 +101,43 @@ const FormProject = (props) => {
                                 <option value={worker.img}>{worker.name}</option>
                             )
                         })}
-                        
-                        
-                          
                     </Form.Control>
                 </Col>
             </Row>
             <Row>
-                <Col>
+                <Col sm='12' md='6' style={{marginBottom:'1rem'}}>
+                <Form.Control 
+                        class="mr-sm-2"
+                        as="select"
+                        placeholder="Developer"
+                        onChange={(e) => replaceDeveloper(e)}
+                    >
+                        <option value="0">Developer</option>
+                        {props.team.developers.map(worker => {
+                            return(
+                                <option value={worker.img}>{worker.name}</option>
+                            )
+                        })}
+                    </Form.Control>
+                </Col>
+                <Col sm='12' md='6' style={{marginBottom:'1rem'}}>
+                    <Form.Control 
+                        class="mr-sm-2"
+                        as="select"
+                        placeholder="UI Designer"
+                        onChange={(e) => replaceUiDesigner(e)}
+                    >
+                        <option value="0">UI Designer</option>
+                        {props.team.uidesigners.map(worker => {
+                            return(
+                                <option value={worker.img}>{worker.name}</option>
+                            )
+                        })}
+                    </Form.Control>
+                </Col>
+            </Row>
+            <Row>
+                <Col >
                 <Form.Control 
                         class="mr-sm-2"
                         as="select"
@@ -121,3 +165,7 @@ const FormProject = (props) => {
 }
 
 export default FormProject;
+
+FormProject.propTypes = {
+    team: PropTypes.array
+}

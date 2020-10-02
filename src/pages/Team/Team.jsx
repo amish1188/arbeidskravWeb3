@@ -29,7 +29,7 @@ const Team = (props) => {
             label: 'Project Managers'
         }];
 
-    //make component from this ul
+    
     return(
         <BrowserRouter> 
             <Tabs url={url} paths={paths}/>            

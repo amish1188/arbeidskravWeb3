@@ -9,6 +9,7 @@ import FormWorker from '../../Form/FormWorker/FormWorker';
 import classes from './AddNew.module.css';
 import closeIcon from '../../../assets/icons/close-white-18dp.svg';
 
+
 const AddNew = (props) => {
 
    let formType;
@@ -20,7 +21,8 @@ const AddNew = (props) => {
         case "worker":
         formType = <FormWorker closeModal={props.handleClose} submit={props.addFunc} />;
         break;
-
+        
+        //unusable for now
         case "customer":
         formType = <FormProject closeModal={props.handleClose} submit={props.addFunc} />;
         break;
@@ -35,7 +37,7 @@ const AddNew = (props) => {
         <Modal dialogClassName={classes.Modal} show={true}>
             <Modal.Body className={classes.ModalBody}>
                 <Row style={{justifyContent: 'flex-end'}}>
-                    <Col md="auto">
+                    <Col sm={1}  md="auto">
                         <img style={{marginBottom:'1rem'}} onClick={props.handleClose} src={closeIcon} alt="close"/>
                     </Col>
                 </Row>

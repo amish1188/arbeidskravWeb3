@@ -35,7 +35,7 @@ const FormWorker = (props) => {
         <>               
         <Form>
             <Row>
-                <Col >
+                <Col sm='12' md='6'>
                     <Form.Control 
                         className={classes.Input}  
                         placeholder="Full name"
@@ -43,7 +43,7 @@ const FormWorker = (props) => {
                             ...worker, name: e.target.value
                         })}/>
                 </Col>
-                <Col>
+                <Col sm='12' md='6' style={{marginBottom:'1rem'}}>
                     <Form.Control 
                         class="mr-sm-2"
                         as="select"
@@ -61,7 +61,7 @@ const FormWorker = (props) => {
                 
             </Row>
             <Row>
-                <Col>
+                <Col sm='12' md='6'>
                     <Form.Control 
                         className={classes.Input}  
                         type="email"
@@ -70,7 +70,7 @@ const FormWorker = (props) => {
                             ...worker, mail: e.target.value
                         })}/>
                 </Col>
-                <Col>
+                <Col sm='12' md='6'>
                     <Form.Control 
                         className={classes.Input}  
                         placeholder="Phone"

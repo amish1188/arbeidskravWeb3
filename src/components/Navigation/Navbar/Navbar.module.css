@@ -7,6 +7,10 @@
     justify-content: center;
 }
 
+.Navbar a {
+    margin: 0.5rem 0rem;
+}
+
 .Link {
     display: flex;
     border-radius: 50px 0px 0px 50px;
@@ -23,6 +27,11 @@
 }
 
 .LinkActive {
+    background-color: #f4f5f9;
+    color:#68CAD7 ;
+}
+
+.LinkActive:hover {
     background-color: #f4f5f9;
     color:#68CAD7 ;
 }
@@ -93,7 +102,13 @@
         flex-direction: row;
     }
     .Link {
+        min-width: 4rem;
         border-radius: 0px 0px 50px 50px;
         margin: 0rem 1rem;
+    }
+
+    .Navbar a {
+        
+        margin: 0rem 0.5rem;
     }
   }
