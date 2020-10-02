@@ -14,7 +14,7 @@ const AddNew = (props) => {
    let formType;
    switch(props.type){
         case "project":
-        formType = <FormProject closeModal={props.handleClose} submit={props.addFunc} />;
+        formType = <FormProject team={props.team} closeModal={props.handleClose} submit={props.addFunc} />;
         break;
 
         case "worker":

@@ -5,6 +5,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import classes from './FormProject.module.css';
 
+
 const FormProject = (props) => {
 
 
@@ -15,19 +16,8 @@ const FormProject = (props) => {
             name: "",
             deadline:"",
             customer:"",
-            manager: "man",
-            team: [
-                {
-                    name: "Tom Jericho",
-                    img: "man",
-                    position: "Manager"   
-                },
-                {
-                    name: "Mary Jane",
-                    img: "woman2",
-                    position: "Developer"   
-                }
-            ],
+            manager: "",
+            team: [],
             status: "current",
             description: ""
         }
@@ -41,6 +31,14 @@ const FormProject = (props) => {
         else {
             setNoTitle(false)
         }
+    }
+
+    const twoCalls = (e) => {
+        let worker = props.team.developers.filter(worker => worker.img === e.target.value);
+        
+        setNewProject({...project, manager: e.target.value});
+        setNewProject({...project, team: worker});
+        console.log(worker);
     }
 
     return(   
@@ -79,6 +77,26 @@ const FormProject = (props) => {
                     <Form.Control 
                         class="mr-sm-2"
                         as="select"
+                        placeholder="Manager"
+                        onChange={(e) => twoCalls(e)}
+                    >
+                        <option value="0">Manager</option>
+                        {props.team.projectmanagers.map(worker => {
+                            return(
+                                <option value={worker.img}>{worker.name}</option>
+                            )
+                        })}
+                        
+                        
+                          
+                    </Form.Control>
+                </Col>
+            </Row>
+            <Row>
+                <Col>
+                <Form.Control 
+                        class="mr-sm-2"
+                        as="select"
                         placeholder="Customer"
                         onChange={(e) => setNewProject({
                             ...project, customer: e.target.value
@@ -87,7 +105,7 @@ const FormProject = (props) => {
                         <option value="0">Customer</option>
                         <option value="starbucks">Starbucks</option>
                         <option value="pinterest">Pinterest</option>    
-                    </Form.Control>
+                    </Form.Control>  
                 </Col>
             </Row>
         </Form>

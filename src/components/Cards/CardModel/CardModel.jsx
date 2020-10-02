@@ -22,7 +22,6 @@ const CardModel = (props) => {
                 </div>
                 <Button className={classes.Button}><img src={phoneIcon} alt="phone"/>{props.object.phone}</Button>
                 <Button style={{backgroundColor: "#AABBF3"}}className={classes.Button}><img src={mail} alt="mail"/>{props.object.mail}</Button>
-                <div>Skills</div>
             </Card.Body>
         </Card>
     );

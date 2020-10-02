@@ -56,14 +56,16 @@ function App() {
       pageHeaderName="Customers";
       buttonLabel="customer";
       addFunc=addNewCustomer;
+  } else {
+    pageHeaderName="Home"
   }
-  console.log(team);
+  console.log(projects);
   return (
     <div className={classes.Wrapper}>
       <Navbar />
       <Container style={{height:"100vh"}}>
         <PageHeader title={pageHeaderName} />
-        {location.pathname  === "/" ? null : <ButtonSearchBarTab addFunc={addFunc} title={buttonLabel} />}
+        {location.pathname  === "/" ? null : <ButtonSearchBarTab addFunc={addFunc} title={buttonLabel}  team={team} />}
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/projects"  render={(props) => (<Projects {...props} projects={projects} />)} />

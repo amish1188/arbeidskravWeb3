@@ -14,7 +14,7 @@ const AddButton = (props) => {
     return(
         <>
             <Button className={classes.AddButton} onClick={handleShow}>+ Add new {props.title}</Button>
-            {show ? <AddNew type={props.title} show={show} handleClose={handleClose} addFunc={props.addFunc}/>
+            {show ? <AddNew team={props.team} type={props.title} show={show} handleClose={handleClose} addFunc={props.addFunc}/>
             : null}
             
         </>
